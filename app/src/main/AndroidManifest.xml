@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Feedback"></activity>
+        <activity android:name=".Feedback" />
+        <activity android:name=".ResourcesDays"></activity>
     </application>
 
 </manifest>
