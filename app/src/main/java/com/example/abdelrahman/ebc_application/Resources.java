@@ -3,8 +3,9 @@ package com.example.abdelrahman.ebc_application;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputFilter;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,10 +14,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ResourcesDays extends AppCompatActivity {
+public class Resources extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -27,18 +29,19 @@ public class ResourcesDays extends AppCompatActivity {
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
     // Parameters
-    public static String DAY1 = "DAY1";
-    public static String DAY2 = "DAY2";
-    public static String DAY3 = "DAY3";
+    public static String KEY_REMOTE_CONFIG = "Resources";
 
-    public static String DAY1RES = "null";
-    public static String DAY2RES = "null";
-    public static String DAY3RES = "null";
+
+    public static String Resources = "null";
+
+    private ArrayList<ResourcesHolder> res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resources_days);
+        setContentView(R.layout.activity_resources);
+
+        res = new ArrayList<ResourcesHolder>();
 
         // Initialize Firebase Objects
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
@@ -58,11 +61,10 @@ public class ResourcesDays extends AppCompatActivity {
         // Define default config values. Defaults are used when fetched config values are not
         // available. Eg: if an error occurred fetching values from the server.
         Map<String, Object> defaultConfigMap = new HashMap<>();
-        defaultConfigMap.put(DAY1, DAY1RES);
-        defaultConfigMap.put(DAY2, DAY2RES);
-        defaultConfigMap.put(DAY3, DAY3RES);
+        defaultConfigMap.put(KEY_REMOTE_CONFIG, Resources);
         mFirebaseRemoteConfig.setDefaults(defaultConfigMap);
         fetchConfig();
+
 
     }
 
@@ -104,9 +106,19 @@ public class ResourcesDays extends AppCompatActivity {
      * cached values.
      */
     private void applyRetrievedLengthLimit() {
-      //  Toast.makeText(this, mFirebaseRemoteConfig.getString(DAY1), Toast.LENGTH_SHORT).show();
-      //  Toast.makeText(this, mFirebaseRemoteConfig.getString(DAY2), Toast.LENGTH_SHORT).show();
-        Log.e("day1",mFirebaseRemoteConfig.getString(DAY1));
-        Log.e("day2",mFirebaseRemoteConfig.getString(DAY2));
+        String fetchedRes = mFirebaseRemoteConfig.getString(KEY_REMOTE_CONFIG);
+        Resources = fetchedRes;
+        if (!Resources.equalsIgnoreCase("null")){
+            String[] resDetails = Resources.split(",");
+            for (int i = 0; i <= resDetails.length - 2; i = i + 2){
+                res.add(new ResourcesHolder(resDetails[i], resDetails[i+1]));
+            }
+            ResourcesAdapter adapter=new ResourcesAdapter(res,this);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+            recyclerView.setAdapter(adapter);
+        } else {
+            Toast.makeText(this, Resources, Toast.LENGTH_LONG).show();
+        }
     }
 }

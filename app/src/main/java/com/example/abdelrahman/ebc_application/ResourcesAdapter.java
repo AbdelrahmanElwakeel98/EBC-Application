@@ -13,11 +13,10 @@ import java.util.ArrayList;
 public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList<String> resDays;
-    private String days;
+    ArrayList<ResourcesHolder> res;
 
-    public ResourcesAdapter (ArrayList<String> resDays, Context context){
-        this.resDays=resDays;
+    public ResourcesAdapter (ArrayList<ResourcesHolder> res, Context context){
+        this.res=res;
         this.context=context;
     }
     @NonNull
@@ -31,20 +30,23 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
-        days=resDays.get(i);
-        myViewHolder.textView.setText(days);
+        myViewHolder.textView.setText(res.get(i).getTitle());
+        myViewHolder.textView1.setText(res.get(i).getLink());
+
     }
 
     @Override
     public int getItemCount() {
-        return resDays.size();
+        return res.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+        TextView textView1;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textView=itemView.findViewById(R.id.txt_res);
+            textView1 = itemView.findViewById(R.id.txt1_res);
         }
     }
 }

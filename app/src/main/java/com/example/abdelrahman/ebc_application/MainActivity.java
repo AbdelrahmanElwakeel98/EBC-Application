@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.util.zip.Inflater;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(MainActivity.this, ResourcesDays.class);
+        Intent intent = new Intent(MainActivity.this, Resources.class);
         startActivity(intent);
     }
 }
