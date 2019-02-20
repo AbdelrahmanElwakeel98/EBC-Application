@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Feedback" />
-        <activity android:name=".Resources"></activity>
+        <activity android:name=".Resources" />
+        <activity android:name=".Board"></activity>
     </application>
 
 </manifest>
