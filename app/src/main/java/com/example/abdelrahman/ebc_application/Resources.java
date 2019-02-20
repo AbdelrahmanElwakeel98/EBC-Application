@@ -29,10 +29,9 @@ public class Resources extends AppCompatActivity {
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
     // Parameters
-    public static String KEY_REMOTE_CONFIG = "Resources";
+    private static String KEY_REMOTE_CONFIG = "Resources";
 
-
-    public static String Resources = "null";
+    private static String Resources = "null";
 
     private ArrayList<ResourcesHolder> res;
 
