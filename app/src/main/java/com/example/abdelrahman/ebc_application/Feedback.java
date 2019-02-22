@@ -24,6 +24,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -41,7 +43,7 @@ public class Feedback extends AppCompatActivity {
 
         // Binding layout objects
         btn = findViewById(R.id.btn_feedback);
-        editText = findViewById(R.id.edit_feddback);
+        editText = findViewById(R.id.edit_feedback);
 
         // Enable Send button when there's text to send
         editText.addTextChangedListener(new TextWatcher() {
@@ -101,9 +103,12 @@ public class Feedback extends AppCompatActivity {
                 //    String usn = Integer.toString(i);
 
                 String id= "1ZyNNqbRZaEKOHeuRMULCycFS_mUgXEQJ9MIATtlYW6U";
+                Date currentTime = Calendar.getInstance().getTime();
 
                 postDataParams.put("name",editText.getText().toString());
                 postDataParams.put("id",id);
+                postDataParams.put("date",currentTime);
+
 
 
                 Log.e("params",postDataParams.toString());

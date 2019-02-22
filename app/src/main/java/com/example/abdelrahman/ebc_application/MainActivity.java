@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
                         case 2: Toast.makeText(MainActivity.this, "3", Toast.LENGTH_LONG).show();
                             return;
 
+                        case 3: Toast.makeText(MainActivity.this, "4", Toast.LENGTH_LONG).show();
+                            return;
+
+                        case 4: Toast.makeText(MainActivity.this, "5", Toast.LENGTH_LONG).show();
+                            return;
+
+                        case 5: startActivity(new Intent(MainActivity.this, Feedback.class));
+                            return;
+
                     }
                 }
             });

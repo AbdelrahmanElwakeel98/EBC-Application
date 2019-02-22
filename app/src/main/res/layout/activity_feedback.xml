@@ -1,38 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Feedback">
+    tools:context=".MainActivity"
+    android:background="@drawable/dashboard"
+    >
 
-    <TextView
-        android:id="@+id/txt_feedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feedback: -"
-        android:layout_margin="10dp"
-        />
-
-    <EditText
-        android:id="@+id/edit_feddback"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/txt_feedback"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/custom_edit_feedback"
-        android:gravity="top|left"
-        android:padding="10dp"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_feedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edit_feddback"
-        android:text="Send"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"/>
+        <RelativeLayout
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            >
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_dashboard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/feedback"
+                android:layout_alignParentRight="true"/>
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/txt_name_of_application"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EBC"
+                android:fontFamily="@font/font_headlines"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                />
+
+            <TextView
+                android:id="@+id/txt_page_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_name_of_application"
+                android:text="Feedback"
+                android:fontFamily="@font/font_headlines"
+                android:textColor="#616161"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/edit_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/custom_edit_feedback"
+                android:gravity="top|left"
+                android:padding="10dp"
+                android:textCursorDrawable="@null"
+                android:textColor="#000000"/>
+
+            <Button
+                android:id="@+id/btn_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_feedback"
+                android:text="Send"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignRight="@id/edit_feedback"
+                android:fontFamily="@font/font_headlines"
+                android:background="@drawable/custom_button"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
