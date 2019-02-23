@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                         case 1: Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                             return;
 
-                        case 2: Toast.makeText(MainActivity.this, "3", Toast.LENGTH_LONG).show();
+                        case 2: startActivity(new Intent(MainActivity.this, Board.class));
                             return;
 
                         case 3: Toast.makeText(MainActivity.this, "4", Toast.LENGTH_LONG).show();

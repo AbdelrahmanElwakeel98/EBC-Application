@@ -80,7 +80,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/ebc" />
+                        android:src="@drawable/ebc_burned" />
 
                     <TextView
                         android:layout_width="wrap_content"
