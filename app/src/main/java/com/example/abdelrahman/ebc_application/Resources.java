@@ -1,5 +1,7 @@
 package com.example.abdelrahman.ebc_application;
 
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +9,8 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +28,7 @@ public class Resources extends AppCompatActivity {
 
     // Layout Variables
     RecyclerView recyclerView;
+    ProgressBar progressBar;
 
     // Firebase Variables
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
@@ -47,6 +52,12 @@ public class Resources extends AppCompatActivity {
 
         // Initialize references to views
         recyclerView = findViewById(R.id.recycler_res);
+        progressBar = findViewById(R.id.circular_progress_bar);
+
+
+        progressBar = (ProgressBar) findViewById(R.id.circular_progress_bar);
+
+        progressBar.setVisibility(View.VISIBLE);
 
         // Create Remote Config Setting to enable developer mode.
         // Fetching configs from the server is normally limited to 5 requests per hour.
@@ -104,6 +115,7 @@ public class Resources extends AppCompatActivity {
      * Apply retrieved length limit to edit text field. This result may be fresh from the server or it may be from
      * cached values.
      */
+    @SuppressLint("WrongConstant")
     private void applyRetrievedLengthLimit() {
         String fetchedRes = mFirebaseRemoteConfig.getString(KEY_REMOTE_CONFIG);
         Resources = fetchedRes;
@@ -114,8 +126,8 @@ public class Resources extends AppCompatActivity {
             }
             ResourcesAdapter adapter=new ResourcesAdapter(res,this);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
             recyclerView.setAdapter(adapter);
+            progressBar.setVisibility(8);
         } else {
             Toast.makeText(this, Resources, Toast.LENGTH_LONG).show();
         }

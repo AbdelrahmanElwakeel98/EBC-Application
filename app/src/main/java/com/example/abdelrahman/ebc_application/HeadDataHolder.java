@@ -1,11 +1,11 @@
 package com.example.abdelrahman.ebc_application;
 
-public class BoardInfo {
+public class HeadDataHolder {
     private String imgUrl;
     private String name;
     private String title;
 
-    public  BoardInfo(String imgUrl, String name, String title){
+    public HeadDataHolder(String imgUrl, String name, String title){
         this.imgUrl = imgUrl;
         this.name = name;
         this.title = title;

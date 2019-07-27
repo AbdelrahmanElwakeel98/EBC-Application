@@ -2,32 +2,33 @@ package com.example.abdelrahman.ebc_application;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.MyViewHolder> {
 
-    ArrayList<BoardInfo> boardMembers;
-    BoardInfo boardMember;
+    ArrayList<CommitteeHeads> boardMembers;
+    CommitteeHeads boardMember;
     Context context;
+    private RecyclerView.RecycledViewPool recycledViewPool;
 
-    public BoardAdapter(ArrayList<BoardInfo> boardMembers, Context context){
+    public BoardAdapter(ArrayList<CommitteeHeads> boardMembers, Context context){
         this.boardMembers=boardMembers;
         this.context=context;
+        recycledViewPool = new RecyclerView.RecycledViewPool();
     }
 
     @NonNull
     @Override
     public BoardAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_grid,viewGroup,false);
+        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_committeesheads,viewGroup,false);
         MyViewHolder holder=new MyViewHolder(v);
         return holder;
     }
@@ -35,11 +36,11 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull BoardAdapter.MyViewHolder myViewHolder, int i) {
         boardMember=boardMembers.get(i);
-        myViewHolder.textView.setText(boardMember.getName());
-        myViewHolder.textView1.setText(boardMember.getTitle());
-        Glide.with(myViewHolder.imageView.getContext())
-                .load(boardMember.getImgUrl())
-                .into(myViewHolder.imageView);
+        myViewHolder.textView.setText(boardMember.getCommittee());
+        //myViewHolder.recyclerView.setLayoutManager(new GridLayoutManager(context,boardMember.getNum()));
+        BoardAdapterHorizontal boardAdapterHorizontal = new BoardAdapterHorizontal(boardMember.getBoardList(), context);
+        myViewHolder.recyclerView.setAdapter(boardAdapterHorizontal);
+        myViewHolder.recyclerView.setRecycledViewPool(recycledViewPool);
     }
 
     @Override
@@ -48,14 +49,19 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.MyViewHolder
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
         TextView textView;
-        TextView textView1;
+        RecyclerView recyclerView;
+
+        private LinearLayoutManager horizontalManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.image_grid);
-            textView = itemView.findViewById(R.id.txt_grid);
-            textView1 = itemView.findViewById(R.id.txt1_grid);
+            textView = itemView.findViewById(R.id.txt_linear);
+            recyclerView = itemView.findViewById(R.id.recyclerGrid);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setNestedScrollingEnabled(false);
+            recyclerView.setLayoutManager(horizontalManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
         }
     }
 }

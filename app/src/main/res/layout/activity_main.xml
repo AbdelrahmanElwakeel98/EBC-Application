@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/dashboard"
+    android:background="@drawable/background"
     >
     
     <LinearLayout
@@ -16,28 +16,22 @@
        <RelativeLayout
            android:layout_marginRight="20dp"
            android:layout_marginLeft="20dp"
-           android:layout_marginTop="32dp"
+           android:layout_marginTop="20dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginBottom="15dp"
            >
 
-           <de.hdodenhof.circleimageview.CircleImageView
-               android:id="@+id/img_dashboard"
-               android:layout_width="50dp"
-               android:layout_height="50dp"
-               android:src="@drawable/homepage"
-               android:layout_alignParentRight="true"/>
 
            <TextView
                android:id="@+id/txt_name_of_application"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="EBC"
+               android:text="Engineering Bridge Competition"
                android:fontFamily="@font/font_headlines"
-               android:textColor="#212121"
+               android:textColor="#FFFFFF"
                android:textStyle="bold"
-               android:textSize="22sp"
+               android:textSize="19sp"
                />
 
            <TextView
@@ -47,7 +41,7 @@
                android:layout_below="@id/txt_name_of_application"
                android:text="Homepage"
                android:fontFamily="@font/font_headlines"
-               android:textColor="#616161"
+               android:textColor="#52BAFF"
                android:textSize="15sp"
                />
        </RelativeLayout>
@@ -80,7 +74,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/ebc_burned" />
+                        android:src="@drawable/ebc_logo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -88,7 +82,7 @@
                         android:layout_marginTop="22dp"
                         android:text="About us"
                         android:fontFamily="@font/font_headlines"
-                        android:textColor="#616161"
+                        android:textColor="#1e252f"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -114,7 +108,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/award" />
+                        android:src="@drawable/rules" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -122,7 +116,7 @@
                         android:layout_marginTop="22dp"
                         android:text="Rules"
                         android:fontFamily="@font/font_headlines"
-                        android:textColor="#616161"
+                        android:textColor="#1e252f"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -148,7 +142,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/hierarchy" />
+                        android:src="@drawable/hierachy" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -156,7 +150,7 @@
                         android:layout_marginTop="22dp"
                         android:text="Hierarchy"
                         android:fontFamily="@font/font_headlines"
-                        android:textColor="#616161"
+                        android:textColor="#1e252f"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -182,7 +176,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/hiring" />
+                        android:src="@drawable/res" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -190,7 +184,7 @@
                         android:layout_marginTop="22dp"
                         android:text="Resources "
                         android:fontFamily="@font/font_headlines"
-                        android:textColor="#616161"
+                        android:textColor="#1E252F"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -216,15 +210,15 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/calendar" />
+                        android:src="@drawable/contact" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="22dp"
-                        android:text="Our events"
+                        android:text="Contact us"
                         android:fontFamily="@font/font_headlines"
-                        android:textColor="#616161"
+                        android:textColor="#1e252f"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -258,7 +252,7 @@
                         android:layout_marginTop="22dp"
                         android:text="Feedback"
                         android:fontFamily="@font/font_headlines"
-                        android:textColor="#616161"
+                        android:textColor="#1e252f"
                         android:textSize="18sp" />
 
                 </LinearLayout>

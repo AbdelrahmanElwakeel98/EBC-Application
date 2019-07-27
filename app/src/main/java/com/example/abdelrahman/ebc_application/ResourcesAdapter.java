@@ -22,7 +22,7 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_row,viewGroup,false);
+        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_res_row,viewGroup,false);
         MyViewHolder holder=new MyViewHolder(v);
         return holder;
     }

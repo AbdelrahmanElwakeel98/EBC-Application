@@ -45,6 +45,8 @@ public class Feedback extends AppCompatActivity {
         btn = findViewById(R.id.btn_feedback);
         editText = findViewById(R.id.edit_feedback);
 
+        btn.setEnabled(false);
+
         // Enable Send button when there's text to send
         editText.addTextChangedListener(new TextWatcher() {
             @Override

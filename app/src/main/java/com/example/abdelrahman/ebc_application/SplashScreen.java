@@ -18,16 +18,12 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        textView = findViewById(R.id.txt1_splash);
-
-        String text = "<font color=#34B6EC>Beyond</font> <font color=#F48325> The Action</font>";
-        textView.setText(Html.fromHtml(text));
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                SplashScreen.this.finish();
 
             }
         },SPLASH_DISPLAY_LENGTH);

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             container.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
                     switch (finalI){
-                        case 0: Toast.makeText(MainActivity.this, "1", Toast.LENGTH_LONG).show();
+                        case 0: startActivity(new Intent(MainActivity.this, AboutUs.class));
                             return;
 
                         case 1: Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
                         case 2: startActivity(new Intent(MainActivity.this, Board.class));
                             return;
 
-                        case 3: Toast.makeText(MainActivity.this, "4", Toast.LENGTH_LONG).show();
+                        case 3: startActivity(new Intent(MainActivity.this, Resources.class));
                             return;
 
-                        case 4: Toast.makeText(MainActivity.this, "5", Toast.LENGTH_LONG).show();
+                        case 4: startActivity(new Intent(MainActivity.this, ContactUs.class));
                             return;
 
                         case 5: startActivity(new Intent(MainActivity.this, Feedback.class));
